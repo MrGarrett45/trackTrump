@@ -11,4 +11,6 @@ Each of those .py files need to be updated once a day (going to try to update at
 
 Might make a reddit bot to post the info to a subreddit and also might make some kind of graph to display the data over time.
 
+Only issue is that reddit will flag trackTrump.py for too many requests but if you just submit it a few times it will go through.
+
 Check out RESULTS.txt for updated information!
