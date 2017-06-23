@@ -18,7 +18,10 @@ key = month+day
 
 del pic[0]
 del pic[0]
-del pic[55:57]
+del pic[0]
+del pic[0]
+del pic[0]
+del pic[53:55]
 titleList = pic[1::2]
 
 trumpCounter = 0
@@ -30,8 +33,8 @@ for i in range(len(titleList)-1):
         trumpCounter = trumpCounter + 1
         #print(trumpCounter)
 
-dailyPercent = trumpCounter/len(titleList)
-print("Today %d out of %d articles were about Trump" % (trumpCounter, len(titleList)))
+dailyPercent = trumpCounter/(len(titleList)-1)
+print("Today %d out of %d articles were about Trump" % (trumpCounter, (len(titleList)-1)))
 print("Todays trump percent is: %f" % dailyPercent)
 
 trumpData = shelve.open('trumpData')
