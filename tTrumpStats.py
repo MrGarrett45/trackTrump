@@ -13,10 +13,10 @@ for i in range(len(trumpData)):
     totalNum += list(trumpData.values())[i].get('numArticles')
 
 avg = totalNum/len(trumpData)
-avgP = avg/27
+avgP = avg/25
 
 print("The percent of Trump based articles so far is %f" % avgP)
-print("The average number of articles thus far is %f per 27" % avg)
+print("The average number of articles thus far is %f per 25" % avg)
 
 now = datetime.datetime.now()
 month = str(now.month)  
@@ -40,12 +40,12 @@ for j in range(len(trumpData) -1):
 resultFile = open('RESULTS.txt', 'a')
 resultFile.write('\nData for %s/%s/%s:\n' % (month, day, str(now.year))) 
 resultFile.write('Today %f percent of articles were based on Trump,' % (todayAvg*100))
-resultFile.write(' or %d out of 27\n' % todayNum)
+resultFile.write(' or %d out of 25\n' % todayNum)
 if largestFlag == True:
     resultFile.write("Thats a new high!\n")
 if smallestFlag == True:
     resultFile.write("That's a new low!\n")
-resultFile.write('Since this experiment started %f percent of articles on the frontpage of r/politics have been based on Trump, or %f per 27\n' % (avgP*100, avg))
+resultFile.write('Since this experiment started %f percent of articles on the frontpage of r/politics have been based on Trump, or %f per 25\n' % (avgP*100, avg))
 
 trumpData.close()
 resultFile.close()
