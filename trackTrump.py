@@ -36,10 +36,10 @@ for i in range(len(titleList)-1):
         #print(trumpCounter)
 
     if titleText.find("Russia") != -1  or titleText.find("Putin") != -1 or titleText.find("Kremlin") != -1:
-	russiaCounter = russiaCounter + 1
+        russiaCounter = russiaCounter + 1
 
     if titleText.find("Trump") != -1 and (titleText.find("Russia") != -1  or titleText.find("Putin") != -1 or titleText.find("Kremlin") != -1):
-	tNrCounter = tNrCounter + 1
+        tNrCounter = tNrCounter + 1
 
 dailyPercent = trumpCounter/(len(titleList)-1)
 print("Today %d out of %d articles were about Trump" % (trumpCounter, (len(titleList)-1)))
