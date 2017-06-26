@@ -30,7 +30,8 @@ tNrCounter = 0
 for i in range(len(titleList)-1):
     print(titleList[i].getText())
     titleText = titleList[i].getText()
-    
+    #print(i)
+
     if titleText.find("Trump") != -1:
         trumpCounter = trumpCounter + 1
         #print(trumpCounter)
