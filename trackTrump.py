@@ -22,7 +22,7 @@ del pic[0]
 del pic[0]
 del pic[0]
 
-del pic[0]  #leave for two sticked posts, delete for two
+del pic[0]  #leave for two sticked posts, delete for one
 
 del pic[53:55]
 titleList = pic[1::2]
