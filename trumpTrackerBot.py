@@ -6,7 +6,5 @@ import datetime, os
 
 resultFile = open('RESULTS.txt', 'r')
 
-i = 0
-for i in resultFile:
-    i = i + 1
-print(i)
+test = resultFile.readlines()
+ print(test[len(test)-1])
