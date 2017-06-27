@@ -1,7 +1,8 @@
 #! python3
 #Track trump: compiling the percentage of articles on r/politics that are about trump. Will probably try to do over a sample period of around 20 days and publish results
 
-import requests, os, bs4, shelve, datetime
+import requests, os, bs4, shelve, datetime, time
+import tTrumpStats, trumpTrackerBot
 
 url = 'https://www.reddit.com/r/politics/'             
 res = requests.get(url)                        #Getting the HTML for the page
@@ -20,7 +21,9 @@ del pic[0]
 del pic[0]
 del pic[0]
 del pic[0]
-del pic[0]
+
+del pic[0]  #leave for two sticked posts, delete for two
+
 del pic[53:55]
 titleList = pic[1::2]
 
@@ -50,3 +53,7 @@ trumpData = shelve.open('trumpData')
 trumpData[key] = {'percent': dailyPercent, 'numArticles': trumpCounter}
 print(list(trumpData.values()))
 trumpData.close()
+
+tTrumpStats.run()
+time.sleep(1)
+trumpTrackerBot.runBot()
