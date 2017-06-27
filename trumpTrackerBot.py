@@ -13,7 +13,11 @@ def runBot():
     title = test[len(test)-3]
     dailyMessage = test[len(test)-2]
     statMessage = test[len(test)-1]
+<<<<<<< HEAD
     textBody = dailyMessage +'\n'+ statMessage +'\n'+'visit https://github.com/rGarrett45/trackTrump to see the code and full results of this project!'
+=======
+    textBody = dailyMessage +'\n'+ statMessage +'\n'+'visit https://github.com/MrGarrett45/trackTrump to see the code and full results of this project!'
+>>>>>>> 96adaab1c90e8251ddb658f89f6df87a22e544d9
 
     #print(title)
     #print(dailyMessage)
@@ -31,7 +35,7 @@ def runBot():
     loginElem.send_keys('trumpTrackerBot')
     time.sleep(2)                                       
     passwordElem = browser.find_element_by_id('passwd_login')
-    passwordElem.send_keys('trackerbot1')
+    passwordElem.send_keys('passwd')
     passwordElem.submit()
     time.sleep(2)
 
