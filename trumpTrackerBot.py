@@ -30,7 +30,7 @@ def runBot():
     loginElem.send_keys('trumpTrackerBot')
     time.sleep(2)                                       
     passwordElem = browser.find_element_by_id('passwd_login')
-    passwordElem.send_keys('trackerbot1')
+    passwordElem.send_keys('passwd')
     passwordElem.submit()
     time.sleep(2)
 
