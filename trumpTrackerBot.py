@@ -2,7 +2,7 @@
 #Reddit bot to post to r/trumpPercent
 
 from selenium import webdriver 
-import datetime, os, time
+import datetime, os, time, sys
 
 def runBot(): 
     resultFile = open('RESULTS.txt', 'r')
@@ -30,7 +30,7 @@ def runBot():
     loginElem.send_keys('trumpTrackerBot')
     time.sleep(2)                                       
     passwordElem = browser.find_element_by_id('passwd_login')
-    passwordElem.send_keys('passwd')
+    passwordElem.send_keys('trackerbot1')
     passwordElem.submit()
     time.sleep(2)
 
@@ -46,4 +46,4 @@ def runBot():
     time.sleep(2)
     textElem.submit()
 
-    browser.quit()
+    sys.exit()

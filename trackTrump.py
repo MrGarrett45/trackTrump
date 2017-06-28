@@ -1,32 +1,38 @@
 #! python3
 #Track trump: compiling the percentage of articles on r/politics that are about trump. Will probably try to do over a sample period of around 20 days and publish results
 
-import requests, os, bs4, shelve, datetime, time
+import requests, sys, bs4, shelve, datetime, time
 import tTrumpStats, trumpTrackerBot
 
-url = 'https://www.reddit.com/r/politics/'             
-res = requests.get(url)                        #Getting the HTML for the page
-res.raise_for_status()
+def getSite():
+    while True:
+        url = 'https://www.reddit.com/r/politics/'             
+        res = requests.get(url)             #Getting the HTML for the page
+        try:
+            res.raise_for_status()
+        except:
+            pass
+            print("Failed")
+        else:
+            break
+        time.sleep(2)        
+    return res.text
 
-soup = bs4.BeautifulSoup(res.text, "html.parser")
+theText = getSite()
+soup = bs4.BeautifulSoup(theText, "html.parser")
 pic = soup.select('.title')                    #Finding titles with bs
 #print(len(pic))
 
-now = datetime.datetime.now()
-month = str(now.month)                         #Will use the date as the key for
-day = str(now.day)                             #the shelf file
-key = month+day             
-
 del pic[0]
-del pic[0]
-del pic[0]
-del pic[0]
+titleList = pic[1::2] 
 
-del pic[0]  #leave for two sticked posts, delete for one
+for j in range(len(titleList)-1):              #Identifies stickied posts and deletes them               
+    if titleList[j].getText().find("self") != -1:
+        del titleList[j]
+        continue
 
-del pic[53:55]
-titleList = pic[1::2]
-
+del titleList[(len(titleList)-1)]
+                                               #After these deletions titleList now contains the 25 corrent frontpage titles
 trumpCounter = 0
 russiaCounter = 0
 tNrCounter = 0
@@ -49,11 +55,17 @@ dailyPercent = trumpCounter/(len(titleList)-1)
 print("Today %d out of %d articles were about Trump" % (trumpCounter, (len(titleList)-1)))
 print("Todays trump percent is: %f" % dailyPercent)
 
+now = datetime.datetime.now()
+month = str(now.month)                         #Will use the date as the key for
+day = str(now.day)                             #the shelf file
+key = month+day             
+
 trumpData = shelve.open('trumpData')
 trumpData[key] = {'percent': dailyPercent, 'numArticles': trumpCounter}
 print(list(trumpData.values()))
 trumpData.close()
 
-tTrumpStats.run()
-time.sleep(1)
-trumpTrackerBot.runBot()
+tTrumpStats.run()         #calls the function to make the stats
+time.sleep(1)             #sleep so the RESULTS.txt file has time to populate
+trumpTrackerBot.runBot()  #calle the function to run the reddit bot
+sys.exit()
