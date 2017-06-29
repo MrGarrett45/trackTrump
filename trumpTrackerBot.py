@@ -13,7 +13,7 @@ def runBot():
     title = test[len(test)-3]
     dailyMessage = test[len(test)-2]
     statMessage = test[len(test)-1]
-    textBody = dailyMessage +'\n'+ statMessage +'\n'+'visit https://github.com/rGarrett45/trackTrump to see the code and full results of this project!'
+    textBody = dailyMessage +'\n'+ statMessage +'\n'+'visit https://github.com/MrGarrett45/trackTrump to see the code and full results of this project!'
     #print(title)
     #print(dailyMessage)
     #print(statMessage)
