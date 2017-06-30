@@ -25,6 +25,7 @@ Since this experiment started 48.000000 percent of articles on the frontpage of 
 Data for 6/28/2017:
 Today 60.000000 percent of articles were based on Trump, or 15 out of 25
 Since this experiment started 49.714286 percent of articles on the frontpage of r/politics have been based on Trump, or 12.428571 per 25
+
 Data for 6/29/2017:
 Today 34.615385 percent of articles were based on Trump, or 9 out of 25
 Since this experiment started 48.000000 percent of articles on the frontpage of r/politics have been based on Trump, or 12.000000 per 25
