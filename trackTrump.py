@@ -26,10 +26,11 @@ pic = soup.select('.title')                    #Finding titles with bs
 del pic[0]
 titleList = pic[1::2] 
 
-for j in range(len(titleList)-1):              #Identifies stickied posts and deletes them               
-    if titleList[j].getText().find("self") != -1:
-        del titleList[j]
-        continue
+if titleList[0].getText().find("self") != -1:
+        del titleList[0]
+
+if titleList[0].getText().find("self") != -1:
+        del titleList[0]
 
 del titleList[(len(titleList)-1)]
                                                #After these deletions titleList now contains the 25 corrent frontpage titles
